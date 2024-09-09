@@ -68,7 +68,7 @@ function LayoutWithOIDCAuthProvider() {
         automaticSilentRenew: true,
         authority: OIDC.issuer,
         client_id: OIDC.clientId,
-        redirect_uri: OIDC.urlRedirect,
+        redirect_uri: OIDC.urlRedirect || window.location.origin,
         responseType: 'id_token',
         onSigninCallback: () => {
           window.history.replaceState(
