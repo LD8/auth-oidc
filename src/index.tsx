@@ -70,6 +70,7 @@ function LayoutWithOIDCAuthProvider() {
         client_id: OIDC.clientId,
         redirect_uri: OIDC.urlRedirect || window.location.origin,
         responseType: 'id_token',
+        response_mode: OIDC.issuer.includes('microsoft') ? 'query' : '',
         onSigninCallback: () => {
           window.history.replaceState(
             {},
